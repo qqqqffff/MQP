@@ -1,0 +1,44 @@
+Paper #1: Closed-Loop control of trunk posture
+
+Trunk assistance for rats with SCI re-establishes dynamic balance in their bilateral proprioceptive feedback circuits
+thus restoring symmetry and movement consistency. There exists a relationship between trunk orientation and leg
+kinematics and muscle activity. Gait rehabilitation is to restore sensory communication and reorganization of neural
+connections. After severe spinal cord injury, the weak leg is unable to provide enough support for the stance and
+remained over flexed, and the stronger leg was over extended. Using the assistance of the closed loop robotics control,
+the gait cycle was improved showing a connection between the trunk assistance and improvements in locomotion.
+Measurements using ground force, limb length, abduction angle at footstrike, step height, to determine the dominant
+leg after spinal cord injury to adjust the control of an robotic system seems to be essential for expedited
+rehabilitation. Additionally a limb kinematic model could be derived for better data visualization.
+
+https://www.nature.com/articles/s41598-017-18293-y
+
+
+Paper #2: Neurons that restore walking after paralysis
+
+A SCI interrupts the connection between the brain and the brainstem that project instructions the to spinal cord that
+lead to paralysis. Electric epidural stimulation in addition to a robotic support can improve the recovery of people
+with chronic SCIs. Since this application is a out of my range as a computer science major, neuron stimulation using
+EES Rehab technologies is something that is not practical. Tracking of brain activity might be beneficial to analyze
+the brain activations in healthy vs spinal cord injured mice. For statistical analysis two sided, independent t-tests
+can be used when appropriate to supplement data visualization with an alpha value of 0.05. Python neuron simulations
+can be performed in the NEURON simulation environment. R machine learning models for cell types are also accessible for
+use.
+
+https://github.com/neurorestore/Augur
+https://github.com/neurorestore/Magellan
+https://www.nature.com/articles/s41586-022-05385-7
+
+
+Paper #3: DeepLabCut for 3D markerless pose estimation
+
+DeepLabCut is a noninvasive behavioral tracking software that uses deep learning neural network to extract a wire model
+estimation of a specified subject determined by training. Deep lab cut extracts frames that reflect the diversity of the
+subject. Those frames are then manually annotated to contribute towards a training data set. The pre-trained network is
+then refined end-to-end to adapt its weight to the desired features. The performance of the network can then be
+continually trained on more data with statistical determinations of the probability that the model is correct.
+Advantages of DeepLabCut is that it does not require markers on the animal which can tend to be invasive or have
+applications where markers will not work. Additionally, contrasted backgrounds are not necessary either with the
+model. 3D Pose estimation is also possible with multi camera setups.
+
+https://github.com/DeepLabCut/DeepLabCut
+https://www.nature.com/articles/s41596-019-0176-0
