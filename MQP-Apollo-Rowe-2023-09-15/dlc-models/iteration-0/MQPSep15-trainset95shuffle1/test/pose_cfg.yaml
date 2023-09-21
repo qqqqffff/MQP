@@ -1,0 +1,122 @@
+all_joints:
+- - 0
+- - 1
+- - 2
+- - 3
+- - 4
+- - 5
+- - 6
+- - 7
+- - 8
+- - 9
+- - 10
+- - 11
+- - 12
+- - 13
+- - 14
+- - 15
+- - 16
+- - 17
+- - 18
+- - 19
+- - 20
+- - 21
+- - 22
+- - 23
+- - 24
+- - 25
+- - 26
+- - 27
+- - 28
+- - 29
+- - 30
+- - 31
+- - 32
+- - 33
+- - 34
+- - 35
+- - 36
+- - 37
+- - 38
+- - 39
+- - 40
+- - 41
+- - 42
+- - 43
+- - 44
+- - 45
+- - 46
+- - 47
+- - 48
+- - 49
+- - 50
+- - 51
+- - 52
+- - 53
+- - 54
+- - 55
+all_joints_names:
+- Snout
+- Shoulder
+- FrontRightElbow
+- FrontRightAnkle
+- FrontRightMCP1
+- FrontRightFingerTip1
+- FrontRightMCP2
+- FrontRightFingerTip2
+- FrontRightMCP3
+- FrontRightFingerTip3
+- FrontRightMCP4
+- FrontRightFingerTip4
+- FrontRightMCP5
+- FrontRightFingerTip5
+- FrontLeftElbow
+- FrontLeftAnkle
+- FrontLeftMCP1
+- FrontLeftFingerTip1
+- FrontLeftMCP2
+- FrontLeftFingerTip2
+- FrontLeftMCP3
+- FrontLeftFingerTip3
+- FrontLeftMCP4
+- FrontLeftFingerTip4
+- FrontLeftMCP5
+- FrontLeftFingerTip5
+- Cervical
+- Thoracic
+- Lumbar
+- Hip
+- RearRightElbow
+- RearRightAnkle
+- RearRightMCP1
+- RearRightFingerTip1
+- RearRightMCP2
+- RearRightFingerTip2
+- RearRightMCP3
+- RearRightFingerTip3
+- RearRightMCP4
+- RearRightFingerTip4
+- RearRightMCP5
+- RearRightFingerTip5
+- RearLeftElbow
+- RearLeftAnkle
+- RearLeftMCP1
+- RearLeftFingerTip1
+- RearLeftMCP2
+- RearLeftFingerTip2
+- RearLeftMCP3
+- RearLeftFingerTip3
+- RearLeftMCP4
+- RearLeftFingerTip4
+- RearLeftMCP5
+- RearLeftFingerTip5
+- Coccyx
+- TailEnd
+dataset: training-datasets\iteration-0\UnaugmentedDataSet_MQPSep15\MQP_Apollo-Rowe95shuffle1.mat
+global_scale: 0.8
+init_weights: E:\anaconda3\Lib\site-packages\deeplabcut\pose_estimation_tensorflow\models\pretrained\resnet_v1_50.ckpt
+location_refinement: true
+locref_stdev: 7.2801
+net_type: resnet_50
+num_joints: 56
+scoremap_dir: test

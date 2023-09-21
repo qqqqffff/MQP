@@ -1,0 +1,177 @@
+    # Project definitions (do not edit)
+Task: MQP
+scorer: Apollo-Rowe
+date: Sep15
+multianimalproject: false
+identity:
+
+    # Project path (change when moving around)
+project_path: E:\MQP\MQP-Apollo-Rowe-2023-09-15
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  C:\Users\1apol\Desktop\MQP-Apollo-Rowe-2023-09-15\videos\7A6A0014.MP4:
+    crop: 0, 1920, 0, 1080
+  E:\MQP\data\9-13\7A6A0014.MP4:
+    crop: 0, 1920, 0, 1080
+bodyparts:
+- Snout
+- Shoulder
+- FrontRightElbow
+- FrontRightAnkle
+- FrontRightMCP1
+- FrontRightFingerTip1
+- FrontRightMCP2
+- FrontRightFingerTip2
+- FrontRightMCP3
+- FrontRightFingerTip3
+- FrontRightMCP4
+- FrontRightFingerTip4
+- FrontRightMCP5
+- FrontRightFingerTip5
+- FrontLeftElbow
+- FrontLeftAnkle
+- FrontLeftMCP1
+- FrontLeftFingerTip1
+- FrontLeftMCP2
+- FrontLeftFingerTip2
+- FrontLeftMCP3
+- FrontLeftFingerTip3
+- FrontLeftMCP4
+- FrontLeftFingerTip4
+- FrontLeftMCP5
+- FrontLeftFingerTip5
+- Cervical
+- Thoracic
+- Lumbar
+- Hip
+- RearRightElbow
+- RearRightAnkle
+- RearRightMCP1
+- RearRightFingerTip1
+- RearRightMCP2
+- RearRightFingerTip2
+- RearRightMCP3
+- RearRightFingerTip3
+- RearRightMCP4
+- RearRightFingerTip4
+- RearRightMCP5
+- RearRightFingerTip5
+- RearLeftElbow
+- RearLeftAnkle
+- RearLeftMCP1
+- RearLeftFingerTip1
+- RearLeftMCP2
+- RearLeftFingerTip2
+- RearLeftMCP3
+- RearLeftFingerTip3
+- RearLeftMCP4
+- RearLeftFingerTip4
+- RearLeftMCP5
+- RearLeftFingerTip5
+- Coccyx
+- TailEnd
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+start: 0
+stop: 1
+numframes2pick: 20
+
+    # Plotting configuration
+skeleton:
+- - - - - Snout
+- - - - - Shoulder
+  - - - - FrontRightElbow
+    - - - FrontRightAnkle
+      - - FrontRightMCP1
+        - FrontRightFingerTip1
+      - - FrontRightMCP2
+        - FrontRightFingerTip2
+      - - FrontRightMCP3
+        - FrontRightFingerTip3
+      - - FrontRightMCP4
+        - FrontRightFingerTip4
+      - - FrontRightMCP5
+        - FrontRightFingerTip5
+  - - - - FrontLeftElbow
+    - - - FrontLeftAnkle
+      - - FrontLeftMCP1
+        - FrontLeftFingerTip1
+      - - FrontLeftMCP2
+        - FrontLeftFingerTip2
+      - - FrontLeftMCP3
+        - FrontLeftFingerTip3
+      - - FrontLeftMCP4
+        - FrontLeftFingerTip4
+      - - FrontLeftMCP5
+        - FrontLeftFingerTip5
+- - - - - Cervical
+- - - - - Thoracic
+- - - - - Lumbar
+- - - - - Hip
+  - - - - RearRightElbow
+    - - - RearRightAnkle
+      - - RearRightMCP1
+        - RearRightFingerTip1
+      - - RearRightMCP2
+        - RearRightFingerTip2
+      - - RearRightMCP3
+        - RearRightFingerTip3
+      - - RearRightMCP4
+        - RearRightFingerTip4
+      - - RearRightMCP5
+        - RearRightFingerTip5
+  - - - - RearLeftElbow
+    - - - RearLeftAnkle
+      - - RearLeftMCP1
+        - RearLeftFingerTip1
+      - - RearLeftMCP2
+        - RearLeftFingerTip2
+      - - RearLeftMCP3
+        - RearLeftFingerTip3
+      - - RearLeftMCP4
+        - RearLeftFingerTip4
+      - - RearLeftMCP5
+        - RearLeftFingerTip5
+- - - - - Coccyx
+- - - - - TailEnd
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 12
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 16
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
