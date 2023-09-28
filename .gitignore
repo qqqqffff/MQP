@@ -1,3 +1,7 @@
 ./.idea/**
 ./.vscode/**
-/data/**
+./data/**
+./venv/**
+./DeepLabCut/**
+.DS_Store
+./dlc
