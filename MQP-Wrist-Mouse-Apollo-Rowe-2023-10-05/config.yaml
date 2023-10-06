@@ -1,0 +1,151 @@
+    # Project definitions (do not edit)
+Task: MQP-Wrist-Mouse
+scorer: Apollo-Rowe
+date: Oct5
+multianimalproject: false
+identity:
+
+    # Project path (change when moving around)
+project_path: E:/MQP/MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-0-11.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-0-12.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-0-14.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-0-15.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-0-18.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-0-22.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-0-25.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-0-26.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-0.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-1.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-2.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-3.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-4.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-5.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-6.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-7.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-9.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-1-10.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-1.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-3.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-4.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-5.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-6.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-7.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-9.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-10.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-2-12.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-3-0.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-3-1.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-3-3.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-3-4.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-3-5.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-3-6.mp4:
+    crop: 0, 1920, 0, 1080
+  C:\Users\1apol\Desktop\MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05\videos\1084344-3-8.mp4:
+    crop: 0, 1920, 0, 1080
+bodyparts:
+- Elbow
+- Ankle
+- MCP1
+- FingerTip1
+- MCP2
+- Tip2
+- MCP3
+- Tip3
+- MCP4
+- FingerTip4
+- MCP5
+- FingerTip5
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+start: 0
+stop: 1
+numframes2pick: 20
+
+    # Plotting configuration
+skeleton:
+- - - - Elbow
+  - - - Ankle
+    - - MCP1
+      - FingerTip1
+    - - MCP2
+      - Tip2
+    - - MCP3
+      - Tip3
+    - - MCP4
+      - FingerTip4
+    - - MCP5
+      - FingerTip5
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 12
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true

@@ -6,7 +6,7 @@ multianimalproject: false
 identity:
 
     # Project path (change when moving around)
-project_path: E:\MQP\MQP-Apollo-Rowe-2023-09-15
+project_path: E:/MQP/MQP-Apollo-Rowe-2023-09-15
 
     # Annotation data set configuration (and individual video cropping parameters)
 video_sets:
@@ -71,6 +71,8 @@ bodyparts:
 - RearLeftFingerTip5
 - Coccyx
 - TailEnd
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
 
     # Fraction of video to start/stop when extracting frames for labeling/refinement
 
