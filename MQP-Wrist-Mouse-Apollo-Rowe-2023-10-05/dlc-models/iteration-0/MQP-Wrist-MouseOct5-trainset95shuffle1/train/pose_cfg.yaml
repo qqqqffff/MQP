@@ -45,12 +45,12 @@ convolution:
   sharpen: false
   sharpenratio: 0.3
 cropratio: 0.4
-dataset: training-datasets\iteration-0\UnaugmentedDataSet_MQP-Wrist-MouseOct5\MQP-Wrist-Mouse_Apollo-Rowe95shuffle1.mat
+dataset: training-datasets/iteration-0/UnaugmentedDataSet_MQP-Wrist-MouseOct5/MQP-Wrist-Mouse_Apollo-Rowe95shuffle1.mat
 dataset_type: default
 decay_steps: 30000
 display_iters: 1000
 global_scale: 0.8
-init_weights: E:\anaconda3\envs\DEEPLABCUT\lib\site-packages\deeplabcut\pose_estimation_tensorflow\models\pretrained\resnet_v1_50.ckpt
+init_weights: /home/airowe/tensorENV/lib/python3.9/site-packages/deeplabcut/pose_estimation_tensorflow/models/pretrained/resnet_v1_50.ckpt
 intermediate_supervision: false
 intermediate_supervision_layer: 12
 location_refinement: true
@@ -59,7 +59,7 @@ locref_loss_weight: 0.05
 locref_stdev: 7.2801
 lr_init: 0.0005
 max_input_size: 1500
-metadataset: training-datasets\iteration-0\UnaugmentedDataSet_MQP-Wrist-MouseOct5\Documentation_data-MQP-Wrist-Mouse_95shuffle1.pickle
+metadataset: training-datasets/iteration-0/UnaugmentedDataSet_MQP-Wrist-MouseOct5/Documentation_data-MQP-Wrist-Mouse_95shuffle1.pickle
 min_input_size: 64
 mirror: false
 multi_stage: false
@@ -78,7 +78,7 @@ pairwise_huber_loss: false
 pairwise_predict: false
 partaffinityfield_predict: false
 pos_dist_thresh: 17
-project_path: E:/MQP/MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05
+project_path: /home/airowe/MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05
 rotation: 25
 rotratio: 0.4
 save_iters: 50000

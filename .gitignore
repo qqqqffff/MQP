@@ -5,5 +5,9 @@
 /venv/**
 /DeepLabCut/**
 .DS_Store
-/MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05/labeled-data/*.png
-/MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05/videos/
+/MQP-Wrist-Mouse-Apollo-Rowe-2023-10-05/*
+/MQP-Apollo-Rowe-2023-09-15/*
+launchenv.sh
+.idea/*
+.vscode/*
+app/.idea/*
