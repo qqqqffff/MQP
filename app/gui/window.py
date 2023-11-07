@@ -8,6 +8,7 @@ from PyQt5 import QtCore
 from PyQt5.QtGui import QIcon, QActionEvent
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import Qt
+from tabs.live_video_render import LiveVideoRender
 
 
 class MainWindow(QMainWindow):
@@ -15,14 +16,14 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
         self.app = app
         screen_size = app.screens()[0].size()
-        self.screen_width = screen_size.width()
-        self.screen_height = screen_size.height()
+        self.setMinimumWidth(int(screen_size.width() / 2.5))
+        self.setMinimumHeight(int(screen_size.height() / 2))
 
-        self.project = None
-        self.loaded = False
+        self.loaded = None
+        self.config = None
 
         self._generate_welcome_page()
-        # self.window_set()
+        self.window_set()
 
     def window_set(self):
         self.setWindowTitle("MQP")
@@ -31,8 +32,13 @@ class MainWindow(QMainWindow):
         palette.setColor(QtGui.QPalette.Window, QtGui.QColor('#ffffff'))
         self.setPalette(palette)
 
-        # icon = os.path.join(BASE_DIR, 'assets', 'logo.png')
-        # self.setWindowIcon(QIcon(icon))
+        icon = QtGui.QIcon()
+        icon.addFile(os.path.join(BASE_DIR, 'assets', 'logo.svg'), QtCore.QSize(16, 16))
+        icon.addFile(os.path.join(BASE_DIR, 'assets', 'logo.svg'), QtCore.QSize(24, 24))
+        icon.addFile(os.path.join(BASE_DIR, 'assets', 'logo.svg'), QtCore.QSize(32, 32))
+        icon.addFile(os.path.join(BASE_DIR, 'assets', 'logo.svg'), QtCore.QSize(48, 48))
+        icon.addFile(os.path.join(BASE_DIR, 'assets', 'logo.svg'), QtCore.QSize(256, 256))
+        self.setWindowIcon(icon)
 
     def _generate_welcome_page(self):
         self.layout = QtWidgets.QVBoxLayout()
@@ -53,11 +59,51 @@ class MainWindow(QMainWindow):
             "fot-size:12px; text-align: center;",
             margins=(0, 0, 0, 0)
         )
-        description.setMinimumWidth(400)
-        description.setWordWrap(True)
         self.layout.addWidget(description, alignment=Qt.AlignCenter)
 
-        self.load_project_button = QtWidgets.QPushButton('Load Model')
+        self.layout_buttons = QtWidgets.QHBoxLayout()
+        self.layout_buttons.setAlignment(Qt.AlignCenter | Qt.AlignCenter)
+
+        self.load_project_a_button = QtWidgets.QPushButton('Load Model A')
+        self.load_project_a_button.setFixedWidth(200)
+        # self.load_project_a_button.clicked.connect(self._load_project('A'))
+        self.layout_buttons.addWidget(self.load_project_a_button)
+
+        self.load_project_b_button = QtWidgets.QPushButton('Load Model B')
+        self.load_project_b_button.setFixedWidth(200)
+        # self.load_project_b_button.clicked.connect(self._load_project('B'))
+        self.layout_buttons.addWidget(self.load_project_b_ button)
+
+        self.layout.addLayout(self.layout_buttons)
 
         widget = QWidget()
         widget.setLayout(self.layout)
+        self.setCentralWidget(widget)
+
+    def _load_project(self, button):
+        cwd = os.getcwd()
+        config = QtWidgets.QFileDialog.getOpenFileName(
+            self, "Select a Configuration File", cwd, "Config files (*.yaml)"
+        )
+        if not config:
+            return
+        if button == 'A':
+            self.config[0] = config[0]
+            self.loaded[0] = False if not config else True
+        elif button == 'B':
+            self.config[1] = config[0]
+            self.loaded[1] = False if not config else True
+
+        if self.loaded[0] and self.loaded[1]:
+            self._load_tabs()
+
+    def _load_tabs(self):
+        self.tab_widget = QtWidgets.QTabWidget()
+        self.tab_widget.setContentsMargins(0, 20, 0, 0)
+
+        self.live_video_render = LiveVideoRender(
+            root=self, parent=None, description="MQP - Live Video Rendering"
+        )
+
+        self.tab_widget.addTab(self.live_video_render, "Live Video Rendering")
+
