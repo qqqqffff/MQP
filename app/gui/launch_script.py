@@ -1,6 +1,7 @@
 import os.path
 import sys
 import ctypes
+import platform
 
 import PyQt5.QtWidgets as QtWidgets
 import qdarkstyle
@@ -14,8 +15,7 @@ def launch_mqp_app():
     app = QtWidgets.QApplication(sys.argv)
 
     style_file = os.path.join(BASE_DIR, "style.qss")
-    with open(style_file, "r") as f:
-        app.setStyleSheet(style_file)
+    app.setStyleSheet(style_file)
 
     dark_stylesheet = qdarkstyle.load_stylesheet_pyqt5()
     app.setStyleSheet(dark_stylesheet)
@@ -29,6 +29,7 @@ def launch_mqp_app():
 
 if __name__ == '__main__':
     app_id = 'wpi.mqp.sci.0.0.1d'
-    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)
+    if platform.platform() == 'Windows':
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)
     launch_mqp_app()
 

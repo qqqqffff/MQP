@@ -9,6 +9,7 @@ from PyQt5.QtGui import QIcon, QActionEvent
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import Qt
 from tabs.live_video_render import LiveVideoRender
+from utils.discover_projects import discover_projects
 
 
 class MainWindow(QMainWindow):
@@ -54,9 +55,10 @@ class MainWindow(QMainWindow):
 
         description = create_label_widget(
             "This Project hopes to use machine learning and robotics to supplement spinal cord injury recovery in mice."
-            "\nThe machine learning uses two classification neural networks to identify whether the rat has spinal coord injury."
+            "\nThe machine learning uses two classification neural networks to identify whether the rat has spinal "
+            "coord injury."
             "\nThe data from the model is then processed and delivered to the robotics system to aid recovery.",
-            "fot-size:12px; text-align: center;",
+            "font-size:12px; text-align: center;",
             margins=(0, 0, 0, 0)
         )
         self.layout.addWidget(description, alignment=Qt.AlignCenter)
@@ -72,9 +74,13 @@ class MainWindow(QMainWindow):
         self.load_project_b_button = QtWidgets.QPushButton('Load Model B')
         self.load_project_b_button.setFixedWidth(200)
         # self.load_project_b_button.clicked.connect(self._load_project('B'))
-        self.layout_buttons.addWidget(self.load_project_b_ button)
+        self.layout_buttons.addWidget(self.load_project_b_button)
 
         self.layout.addLayout(self.layout_buttons)
+
+        self.discover_projects_button = QtWidgets.QPushButton('Discover Projects')
+        self.discover_projects_button.setFixedWidth(200)
+        # self.discover_projects_button.clicked.connect(self._discover_projects)
 
         widget = QWidget()
         widget.setLayout(self.layout)
@@ -106,4 +112,11 @@ class MainWindow(QMainWindow):
         )
 
         self.tab_widget.addTab(self.live_video_render, "Live Video Rendering")
+
+    def _discover_projects(self):
+        projects = discover_projects()
+        for project in projects:
+            tab = create_label_widget(
+                project.name,
+            )
 

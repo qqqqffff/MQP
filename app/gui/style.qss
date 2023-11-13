@@ -1,0 +1,7 @@
+QPushButton {
+    border: 2px solid #ffffff
+    border-radius: 6px
+    min-height: 40px
+    min-width: 200px
+    font-size: 16px
+}
