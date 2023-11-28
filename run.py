@@ -31,8 +31,12 @@ def verify_paths(cfg):
 
     for video in cfg['video_sets']:
         video = str(video)
-        if video.find(p) == -1:
+        video_index = str(video).find("/videos")
+        reconstruct = p + video[video_index:]
+        print(reconstruct)
+        # if video.find(p) == -1:
 
+            # if os.path.exists()
     return True
 
 
