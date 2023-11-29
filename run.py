@@ -26,17 +26,21 @@ def detect_shuffle(path):
     return max_shuffle
 
 
-def verify_paths(cfg):
+def verify_paths(cfg, slash):
     p = cfg['project_path']
+    cfg_yaml = p + slash + 'config.yaml'
 
-    for video in cfg['video_sets']:
+    cfg_videos = dict(cfg['video_sets'].copy())
+
+    for video in cfg_videos.copy():
         video = str(video)
-        video_index = str(video).find("/videos")
+        video_index = str(video).find(slash + "videos")
         reconstruct = p + video[video_index:]
-        print(reconstruct)
-        # if video.find(p) == -1:
+        if video.find(p) == -1 and os.path.exists(reconstruct):
+            cfg_videos[reconstruct] = cfg_videos[video]
+            cfg_videos.pop(video, None)
 
-            # if os.path.exists()
+    auxiliaryfunctions.edit_config(cfg_yaml, {'video_sets': cfg_videos})
     return True
 
 
@@ -44,21 +48,28 @@ start = sys.argv[1]
 print(f'Using absolute path: {os.getcwd()}')
 abs_path = os.getcwd()
 
+slash_char = '/'
 project = sys.argv[2]
+if project[0] == '.':
+    project = project[1:]
+if project[0] == '\\':
+    slash_char = '\\'
 print(f'Project: {project}')
 
 project_path = os.getcwd() + project
+print(f'Project Path: {project_path}')
 if not os.path.exists(project_path):
-    print('Default project does not exist')
+    print('Project specified does not exist')
     exit()
 
-config_path = project_path + '/config.yaml'
+config_path = project_path + 'config.yaml'
+print(f'Configuration File Path: {config_path}')
 if not os.path.exists(config_path):
-    print('Configuration file not detected')
+    print('Configuration file not found')
     exit()
 
 config = auxiliaryfunctions.read_config(configname=config_path)
-verify_paths(config)
+verify_paths(config, slash_char)
 
 if start == "train":
     max_iters = int(sys.argv[3])
@@ -132,7 +143,7 @@ elif start == 'analyze':
            # if ending == 'mp4':
             #    videos.append(x)
     # else:
-    videos.append(project_path + '/videos')
+    videos.append(project_path + slash_char + 'videos')
     print('Analyzing all videos')
 
     analyze_videos(
