@@ -63,6 +63,8 @@ if not os.path.exists(project_path):
     exit()
 
 config_path = project_path + 'config.yaml'
+if not project_path[-1] == '\\' and not project_path[-1] == '/':
+    config_path = project_path + slash_char + 'config.yaml'
 print(f'Configuration File Path: {config_path}')
 if not os.path.exists(config_path):
     print('Configuration file not found')
