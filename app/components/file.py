@@ -1,34 +1,14 @@
-from PyQt5.QtWidgets import (QWidget, QPushButton, QVBoxLayout, QFileDialog, QSlider, QHBoxLayout, QStyle, QStatusBar,
-                             QCheckBox, QMenuBar, QMenu, QAction, QMainWindow)
+from PyQt5.QtWidgets import (QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QFileDialog, QCheckBox,
+                             QSlider, QStyle, QStatusBar)
 from PyQt5.QtCore import Qt, QUrl
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
-import cv2
-import sys
-# from deeplabcut import analyze_videos
 
-
-class Application(QWidget):
+class FileMode(QWidget):
     def __init__(self, parent=None):
-        super(Application, self).__init__(parent)
-        self.resize(1280, 720)
+        super(FileMode, self).__init__(parent)
 
-        self.model_config = ""
         self.media_player = QMediaPlayer(None, QMediaPlayer.VideoSurface)
-        self.menu_bar = QMenuBar()
-        self.menu_bar.setMaximumHeight(30)
-
-        self.camera_layout = QAction("Camera Mode")
-        self.camera_layout.triggered.connect(self.draw_camera)
-        self.menu_bar.addAction(self.camera_layout)
-
-        self.file_layout = QAction("File Mode")
-        self.file_layout.triggered.connect(self.draw_file)
-        self.menu_bar.addAction(self.file_layout)
-
-        self.config_loader = QAction("Load Config")
-        self.config_loader.triggered.connect(self.open_model())
-
         video_widget = QVideoWidget()
         video_widget.setFixedSize(800, 450)
 
@@ -75,39 +55,17 @@ class Application(QWidget):
         layout = QVBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(0)
-        layout.addWidget(self.menu_bar)
         layout.addWidget(video_widget)
         layout.addLayout(controls_layout)
         layout.setAlignment(controls_layout, Qt.AlignBottom)
         layout.addLayout(params_layout)
         layout.setAlignment(params_layout, Qt.AlignBottom)
 
-        self.setLayout(layout)
-
-        self.media_player.setVideoOutput(video_widget)
-        self.media_player.stateChanged.connect(self.media_state_changed)
-        self.media_player.positionChanged.connect(self.position_changed)
-        self.media_player.durationChanged.connect(self.duration_changed)
-        self.media_player.error.connect(self.handle_error)
-
-    def draw_camera(self):
-        print('hello')
-
-    def draw_file(self):
-        print('hello')
-
     def open_video(self):
         file, _ = QFileDialog.getOpenFileName(self, "Select Video", ".", "Video Files (*.mp4 *.flv *.ts *.mts *.avi)")
         if file:
             self.media_player.setMedia(QMediaContent(QUrl.fromLocalFile(file)))
             self.play_button.setEnabled(True)
-            self.status_bar.showMessage("Read: " + file)
-
-    def open_model(self):
-        file, _ = QFileDialog.getOpenFileName(self, "Select Config", ".", "Config File (*.yaml)")
-        if file:
-            self.model_config = file
-            self.model_runner_cb.setEnabled(True)
             self.status_bar.showMessage("Read: " + file)
 
     def play(self):

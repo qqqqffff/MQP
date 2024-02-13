@@ -4,6 +4,8 @@ import time
 start = time.time()
 project = sys.argv[1]
 print(f'Project: {project}')
+if project[-1] == '/' or project[-1] == '\\':
+    project = project[:-1]
 
 sh_script = f'''
 #! /bin/bash
@@ -28,4 +30,4 @@ module load cuda11.6/toolkit/
 with open(f'run_{project}.sh', 'w') as rsh:
     rsh.write(sh_script)
 
-print(f'Finished in {time.time() - start}ms')
+print(f'Created in {time.time() - start}ms')

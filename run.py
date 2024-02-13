@@ -1,11 +1,7 @@
 import sys
 import os
-from deeplabcut import auxiliaryfunctions, train_network, create_training_dataset, evaluate_network, calibrate_cameras, analyze_videos, extract_frames
+from deeplabcut import auxiliaryfunctions, train_network, create_training_dataset, evaluate_network, calibrate_cameras, analyze_videos, extract_frames, create_labeled_video
 import time
-import ruamel.yaml.representer
-import yaml
-from ruamel.yaml import YAML
-from pathlib import Path
 
 
 def detect_shuffle(path):
@@ -27,24 +23,28 @@ def detect_shuffle(path):
 
 
 def verify_paths(cfg, slash):
+    print('Verifying Video Paths')
     p = cfg['project_path']
     cfg_yaml = p + slash + 'config.yaml'
 
     cfg_videos = dict(cfg['video_sets'].copy())
 
-    for video in cfg_videos.copy():
-        video = str(video)
-        video_index = str(video).find(slash + "videos")
-        reconstruct = p + video[video_index:]
-        if video.find(p) == -1 and os.path.exists(reconstruct):
-            cfg_videos[reconstruct] = cfg_videos[video]
-            cfg_videos.pop(video, None)
+    repairs: int = 0
+    for vid in cfg_videos.copy():
+        vid = str(vid)
+        video_index = str(vid).find("videos")
+        reconstruct = p + vid[video_index - 1:]
+        if vid.find(p) == -1 and os.path.exists(reconstruct):
+            cfg_videos[reconstruct] = cfg_videos.get(vid)
+            cfg_videos.pop(vid, None)
+            repairs = repairs + 1
 
     auxiliaryfunctions.edit_config(cfg_yaml, {'video_sets': cfg_videos})
+    print(f'Paths verified with {repairs} repairs')
     return True
 
 
-start = sys.argv[1]
+start = sys.argv[1].lower()
 print(f'Using absolute path: {os.getcwd()}')
 abs_path = os.getcwd()
 
@@ -84,22 +84,19 @@ if start == "train":
         print('Training dataset not found...')
         print('Creating training dataset')
 
-        start = time.time()
         res = create_training_dataset(
             config=config_path,
-            net_type='resnet_50'
+            net_type='resnet_152',
+            augmenter_type='tensorpack'
         )
 
         if res is None:
             print('Failed to create training dataset')
             exit()
 
-        end = time.time()
-        print(f'Created in {end - start}ms')
-
     print('Training network')
 
-    shuffle = detect_shuffle(project_path) + 1
+    shuffle = detect_shuffle(project_path)
     print(f'Shuffle number: {shuffle}')
 
     start = time.time()
@@ -108,7 +105,8 @@ if start == "train":
         maxiters=max_iters,
         saveiters=display_iters,
         displayiters=display_iters,
-        shuffle=shuffle
+        shuffle=shuffle,
+        keepdeconvweights=True
     )
     end = time.time()
 
@@ -155,16 +153,55 @@ elif start == 'analyze':
         videotype='mp4'
     )
 
-elif start == 'Calibrate':
+elif start == 'calibrate':
     calibrate_cameras(
         config=config_path,
         calibrate=True
     )
 
-elif start == 'Extract':
+elif start == 'extract':
+    if project.__contains__('3d'):
+        print('3d project detected!')
+        camera = sys.argv[3]
+        if camera is None:
+            raise 'Camera not specified'
+        i = 0
+
+        for cam in config['camera_names']:
+            if camera == cam:
+                break
+            i = i + 1
+
+        video_set = []
+        print(f'Using video subset for: {camera} camera index {i}')
+        for video in config['video_sets']:
+            if str(video).__contains__(camera):
+                video_set.append(str(video))
+                print(f'{str(video)} with crop: {config["video_sets"][video].get("crop")}')
+
+        extract_frames(
+            config=config_path,
+            algo='kmeans',
+            mode='automatic',
+            userfeedback=False,
+            crop=True,
+            config3d=True,
+            extracted_cam=i,
+            videos_list=video_set,
+        )
+
     extract_frames(
         config=config_path,
         algo='kmeans',
         mode='automatic',
-        userfeedback=False
+        userfeedback=False,
+        crop=True
     )
+
+elif start == 'create':
+    video = [project_path + slash_char + 'videos' + slash_char + sys.argv[3]]
+    create_labeled_video(
+        config=config_path,
+        videos=video,
+    )
+
